@@ -1,5 +1,5 @@
 :root {
-  --accent-purple: #6a0dad; /* Purple for HELLO!!!! */
+  --accent-purple: #CB9DF0; /* New HELLO!!!! color */
   --bg-1: #ffdde9;          /* light pink */
   --bg-2: #ffb6c1;          /* deeper pink */
   --profile-size: 80px;
@@ -41,32 +41,11 @@ body {
   font-size: 14px;
 }
 
-/* HELLO!!!! centered and purple */
+/* HELLO!!!! centered */
 .hello {
   margin: 0;
   font-size: clamp(48px, 12vw, 120px);
   color: var(--accent-purple);
   font-weight: 900;
   text-align: center;
-}
-
-/* Intro section */
-.intro {
-  text-align: center;
-  max-width: 600px;
-}
-.links {
-  margin-top: 20px;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-}
-.btn {
-  text-decoration: none;
-  background: white;
-  color: var(--accent-purple);
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  border: 2px solid var(--accent-purple);
 }
