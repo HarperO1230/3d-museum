@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown Page</title>
+  <!-- Google Font Import -->
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -13,7 +15,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      font-family: "Futura Condensed Extra Bold", "Arial Black", sans-serif;
+      font-family: 'Antonio', sans-serif;
     }
 
     #countdown {
@@ -28,26 +30,4 @@
 
   <script>
     function updateCountdown() {
-      const targetDate = new Date("October 3, 2025 00:00:00").getTime();
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "It's 10/3!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
-</body>
-</html>
+      const
