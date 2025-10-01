@@ -3,34 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Countdown Page</title>
+  <title>Taylor Swift Countdown & Games</title>
   <!-- Google Font Import -->
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      /* Orange glitter background (replace URL with your own if you like) */
       background: url("https://www.transparenttextures.com/patterns/glitter.png"), #F87540;
       background-size: cover;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
       font-family: 'Alfa Slab One', serif;
       text-align: center;
+      color: white;
     }
 
     #title {
       font-size: 42px;
-      margin-bottom: 20px;
-      color: #77BDA2; /* title color */
+      margin-top: 40px;
+      color: #77BDA2;
     }
 
     #countdown {
       font-size: 85px;
-      color: #93C9A7; /* countdown color */
+      color: #93C9A7;
+      margin-bottom: 50px;
+    }
+
+    .game-section {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #FFD1F5;
+    }
+
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input {
+      width: 70%;
+    }
+
+    button {
+      background-color: #77BDA2;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #5d9f86;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #fff8dc;
     }
   </style>
 </head>
@@ -38,7 +80,26 @@
   <div id="title">"The Life of a Showgirl" is released in:</div>
   <div id="countdown"></div>
 
+  <!-- Taylor Swift Fill-in-the-Blank Game -->
+  <div class="game-section">
+    <h2>🎶 Fill in the Blank Lyrics 🎶</h2>
+    <p id="lyric"></p>
+    <input type="text" id="lyricGuess" placeholder="Type your answer here">
+    <button onclick="checkLyric()">Submit</button>
+    <div class="result" id="lyricResult"></div>
+  </div>
+
+  <!-- Taylor Swift Trivia Game -->
+  <div class="game-section">
+    <h2>💜 Taylor Swift Trivia 💜</h2>
+    <p id="triviaQuestion"></p>
+    <div id="triviaOptions"></div>
+    <div class="result" id="triviaResult"></div>
+    <button onclick="newTrivia()">Next Question</button>
+  </div>
+
   <script>
+    // COUNTDOWN
     function updateCountdown() {
       const targetDate = new Date("October 3, 2025 00:00:00").getTime();
       const now = new Date().getTime();
@@ -57,9 +118,77 @@
       document.getElementById("countdown").innerHTML =
         days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
     }
-
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // FILL IN THE BLANK LYRICS GAME
+    const lyrics = [
+      { line: "Cause baby now we got ____", answer: "bad blood" },
+      { line: "I remember it all too ____", answer: "well" },
+      { line: "We are never ever getting ____ together", answer: "back" },
+      { line: "You belong with ____", answer: "me" },
+      { line: "I knew you were ____ when you walked in", answer: "trouble" }
+    ];
+    let currentLyric = lyrics[Math.floor(Math.random() * lyrics.length)];
+    document.getElementById("lyric").innerText = currentLyric.line;
+
+    function checkLyric() {
+      const guess = document.getElementById("lyricGuess").value.trim().toLowerCase();
+      if (guess === currentLyric.answer) {
+        document.getElementById("lyricResult").innerText = "✅ Correct!";
+      } else {
+        document.getElementById("lyricResult").innerText = "❌ Nope! The answer is: " + currentLyric.answer;
+      }
+    }
+
+    // TRIVIA GAME
+    const trivia = [
+      {
+        question: "What year was Taylor Swift born?",
+        options: ["1989", "1990", "1988", "1991"],
+        answer: "1989"
+      },
+      {
+        question: "Which Taylor Swift album features the song 'All Too Well'?",
+        options: ["Red", "Fearless", "1989", "Evermore"],
+        answer: "Red"
+      },
+      {
+        question: "Taylor Swift's lucky number is?",
+        options: ["7", "13", "3", "22"],
+        answer: "13"
+      },
+      {
+        question: "Which album includes 'Love Story'?",
+        options: ["Fearless", "Speak Now", "Red", "Reputation"],
+        answer: "Fearless"
+      },
+      {
+        question: "Taylor's cats are named Meredith, Olivia, and?",
+        options: ["Benjamin", "Phoebe", "Jack", "Max"],
+        answer: "Benjamin"
+      }
+    ];
+
+    function newTrivia() {
+      const q = trivia[Math.floor(Math.random() * trivia.length)];
+      document.getElementById("triviaQuestion").innerText = q.question;
+      const optionsDiv = document.getElementById("triviaOptions");
+      optionsDiv.innerHTML = "";
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.innerText = option;
+        btn.onclick = () => {
+          if (option === q.answer) {
+            document.getElementById("triviaResult").innerText = "✅ Correct!";
+          } else {
+            document.getElementById("triviaResult").innerText = "❌ Wrong! The answer is " + q.answer;
+          }
+        };
+        optionsDiv.appendChild(btn);
+      });
+    }
+    newTrivia();
   </script>
 </body>
 </html>
