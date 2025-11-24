@@ -1,79 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Rock-O-Bots — Decoding Bugs</title>
+    <meta charset="UTF-8">
+    <title>Rock-O-Bots | Decoding Bugs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #7fffd4; 
             margin: 0;
-        }
-        header {
-            background-color: #009b8e;
-            padding: 20px;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(180deg, #ff8a3d, #ff5ca7);
+            background-attachment: fixed;
             text-align: center;
             color: white;
         }
-        nav {
-            background-color: #00b7a3;
-            padding: 10px;
-            text-align: center;
+
+        header {
+            padding: 60px 0 20px;
+            font-size: 3rem;
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(0,0,0,0.4);
         }
+
+        nav {
+            margin-bottom: 40px;
+        }
+
         nav a {
-            margin: 0 15px;
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
-        .content {
-            padding: 40px;
-            text-align: center;
+
+        nav a:hover {
+            text-shadow: 0 0 8px rgba(255,255,255,0.8);
         }
-        .band-box {
-            width: 65%;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
+
+        .section {
+            padding: 80px 20px;
         }
-        .member {
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
+
+        h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(0,0,0,0.3);
+        }
+
+        .band-member {
+            font-size: 1.5rem;
+            margin: 12px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.3rem;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .tracklist li {
+            font-size: 1.2rem;
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <h1>Rock-O-Bots</h1>
-        <h3>New Album Out Now: <i>Decoding Bugs</i></h3>
-    </header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="stream.html">Stream</a>
-        <a href="tour2026.html">World Tour 2026</a>
-    </nav>
+<header>Rock-O-Bots</header>
 
-    <div class="content">
-        <h2>Meet the Band</h2>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#stream">Stream Album</a>
+    <a href="#tour">2026 World Tour</a>
+</nav>
 
-        <div class="band-box">
-            <div class="member">
-                <h3>Pixel — Lead Vocals</h3>
-                <p>Hits every high note with glitch-perfect precision.</p>
-            </div>
+<!-- HOME -->
+<section id="home" class="section">
+    <h2>Meet the Band</h2>
+    <div class="band-member"><strong>Pixel</strong> — Lead Vocals</div>
+    <div class="band-member"><strong>Gizmo</strong> — Guitarist</div>
+    <div class="band-member"><strong>Blocko</strong> — Drums</div>
 
-            <div class="member">
-                <h3>Gizmo — Guitarist</h3>
-                <p>Known for high-voltage solos and shredding at light speed.</p>
-            </div>
+    <h2 style="margin-top: 60px;">New Album: <em>Decoding Bugs</em></h2>
+    <ul class="tracklist">
+        <li>1. System Startup</li>
+        <li>2. Neon Wires</li>
+        <li>3. Binary Heartbeat</li>
+        <li>4. Glitch in the Sky</li>
+        <li>5. Circuits on Fire</li>
+        <li>6. Memory Lane.exe</li>
+        <li>7. Debugging Love</li>
+        <li>8. Electric Dreams</li>
+        <li>9. Shutdown Sequence</li>
+    </ul>
+</section>
 
-            <div class="member">
-                <h3>Blocko — Drums</h3>
-                <p>Powerful, blocky rhythms that shake the motherboard.</p>
-            </div>
-        </div>
-    </div>
+<!-- STREAMING PAGE -->
+<section id="stream" class="section">
+    <h2>Stream *Decoding Bugs*</h2>
+    <p>Available on all major platforms:</p>
+    <ul>
+        <li>Spotify</li>
+        <li>Apple Music</li>
+        <li>YouTube Music</li>
+        <li>Amazon Music</li>
+        <li>SoundCloud</li>
+    </ul>
+</section>
+
+<!-- TOUR PAGE -->
+<section id="tour" class="section">
+    <h2>2026 World Tour</h2>
+    <ul>
+        <li>Tokyo, Japan — Jan 12</li>
+        <li>Seoul, South Korea — Jan 18</li>
+        <li>Sydney, Australia — Feb 2</li>
+        <li>Los Angeles, CA — Mar 10</li>
+        <li>Chicago, IL — Mar 17</li>
+        <li>Boston, MA — Mar 22</li>
+        <li>Toronto, Canada — Apr 4</li>
+        <li>Berlin, Germany — Apr 18</li>
+        <li>Paris, France — Apr 24</li>
+        <li>London, UK — May 1</li>
+        <li>São Paulo, Brazil — Jun 10</li>
+        <li>Mexico City, Mexico — Jun 17</li>
+    </ul>
+</section>
+
 </body>
 </html>
